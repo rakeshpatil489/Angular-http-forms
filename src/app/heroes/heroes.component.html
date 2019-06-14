@@ -1,0 +1,20 @@
+<div class="container">
+ 
+
+  <div class="container-fluid">
+      <h3>My Heros : </h3>
+      <button class="btn btn-success" (click)= "getData()">GET NAMES</button>
+  </div>
+   
+    <br>
+
+  <div class="container" [hidden]= 'hide'>
+      <ul class="list-group" id="listData">
+          <li class="list-group-item list-group-item-secondary" *ngFor = 'let hero of HEROES'> 
+            <h5>{{ hero.id }}. {{ hero.name }}.{{ hero.lastName}}</h5>
+          </li>
+      </ul>
+     
+  </div>
+ 
+</div>

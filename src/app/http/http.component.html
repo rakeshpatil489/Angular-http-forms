@@ -1,0 +1,68 @@
+
+<div class="container">
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container" id="center">
+      <h1 class="display-4">Http and Validation of Form</h1>
+    </div>
+  </div>
+
+  <form  (ngSubmit)="postData(postForm.value)" #postForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name: </label>
+        <input 
+        ngModel
+        type="text" 
+        class="form-control" 
+        id="name" 
+        aria-describedby="emailHelp" 
+        placeholder="Enter Name"
+        name="name"
+        required
+        >
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="postForm.touched && !postForm.dirty" >
+          Name feild is required!
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address: </label>
+        <input 
+        ngModel
+        type="email" 
+        class="form-control" 
+        id="email" 
+        placeholder="Enter Email Address"
+        name="email"
+        required
+        email
+        >
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="postForm.touched && !postForm.dirty" >
+          Email feild is required!
+      </div>
+      <div class="form-group">
+          <label for="contact">Contact Number: </label>
+          <input 
+          ngModel
+          type="text" 
+          class="form-control" 
+          id="contact" 
+          placeholder="Contact Number"
+          name="Contact"
+          required
+          >
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="postForm.touched && !postForm.dirty">
+            Contact feild is required!
+        </div>
+      <button type="submit" class="btn btn-primary" [disabled] = "!postForm.valid">Post Data</button>
+    </form>
+
+    <div class="alert alert-success" role="alert" *ngIf="responseData.status === 200">
+        Post was made Successful!!!
+    </div>
+   
+
+</div>
+
